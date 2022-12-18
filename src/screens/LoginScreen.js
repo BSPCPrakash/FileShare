@@ -5,11 +5,12 @@ import CustomButton from '../components/CustomButton';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {AuthContext} from '../../AuthProvider';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import onSignIn from '../apiCallFunctions/signIn';
 
 
 
 export const LoginScreen = ({navigation}) => {
-  const [value, setValue] = useState('');
+  const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const {setUser,setIsLoggedIn} = React.useContext(AuthContext);
   
@@ -22,17 +23,16 @@ export const LoginScreen = ({navigation}) => {
         secureTextEntry={false}
       />
       <CustomInput
-        value={value}
-        setValue={setValue}
+        value={password}
+        setValue={setPassword}
         placeholder={'Password'}
         secureTextEntry={true}
       />
       <CustomButton
         placeholder={'Signin'}
-        onPress={() => {
-          console.log('Last step for Logging In');
-          setUser(username);
-          setIsLoggedIn(true);
+        onPress={()=>{
+          
+          onSignIn(username,password,setIsLoggedIn);
         }}
       />
       <CustomButton

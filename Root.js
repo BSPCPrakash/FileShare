@@ -6,6 +6,8 @@ import HomeScreen from './src/screens/HomeScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import {useContext} from 'react';
 import {AuthContext} from './AuthProvider';
+import {AsyncStorage} from '@react-native-community/async-storage';
+
 const Stack = createNativeStackNavigator();
 
 const Root = () => {
@@ -13,16 +15,14 @@ const Root = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {
-        isLoggedIn ? (
+        {isLoggedIn ? (
           <Stack.Screen name="Home" component={HomeScreen} />
         ) : (
           <>
             <Stack.Screen name="SignIn" component={LoginScreen} />
             <Stack.Screen name="SignUp" component={SignupScreen} />
           </>
-        )
-        }
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

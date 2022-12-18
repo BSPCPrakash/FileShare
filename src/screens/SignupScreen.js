@@ -1,4 +1,4 @@
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ToastAndroid} from 'react-native';
 import React, {useState} from 'react';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
@@ -47,7 +47,13 @@ const SignupScreen = ({navigation}) => {
       <CustomButton
         placeholder={'Register'}
         onPress={() => {
-          navigation.navigate('SignIn');
+          if(password==confirmPassword){
+            onSignUp(username,password,email,phonenumber);
+          }
+          else{
+            ToastAndroid.showWithGravity("Password and ConfirmPassword Should Match",ToastAndroid.SHORT,ToastAndroid.CENTER);
+          }
+         
         }}
       />
     </View>

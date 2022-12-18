@@ -5,6 +5,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ReceivingTab from './Tabs/ReceivingTab';
 import HomeTab from './Tabs/HomeTab';
 import SettingsTab from './Tabs/SettingsTab';
+import ReceiveFiles from "./Tabs/New_Receiving_Tab";
+
 const Tab = createBottomTabNavigator();
 const HomeScreen = () => {
   return (
@@ -15,7 +17,7 @@ const HomeScreen = () => {
           tabBarInactiveTintColor: 'gray',
         })}>
         <Tab.Screen name="Home Tab" component={HomeTab} />
-        <Tab.Screen name="Receiver Tab" component={ReceivingTab} />
+        <Tab.Screen name="Receiver Tab" component={ReceiveFiles} />
         <Tab.Screen name="Settings Tab" component={SettingsTab} />
       </Tab.Navigator>
     </NavigationContainer>

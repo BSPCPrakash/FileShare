@@ -1,11 +1,11 @@
 import { StyleSheet, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 
-const ReceiverName = () => {
-    const [value,setValue]=useState('');
+const ReceiverName = ({receiverName,setReceiverName}) => {
+    
   return (
     <View>
-      <TextInput value={value} onChangeText={setValue} style={styles.root} placeholder="Receiver Name"></TextInput>
+      <TextInput value={receiverName} onChangeText={setReceiverName} style={styles.root} placeholder="Receiver Name"></TextInput>
     </View>
   )
 }
