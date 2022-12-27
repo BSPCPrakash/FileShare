@@ -8,9 +8,11 @@ const SettingsTab = () => {
       <Pressable
         style={styles.root}
         onPress={() => {
+         
           console.log('Hello logout button');
-          
-          setIsLoggedIn(false);
+          AsyncStorage.removeItem('Username', () => {
+            setIsLoggedIn(false);
+          });
         }}>
         <Text style={styles.input}>SignOut</Text>
       </Pressable>

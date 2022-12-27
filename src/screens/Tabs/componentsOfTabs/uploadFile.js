@@ -22,7 +22,7 @@ const UploadFile = ({file, receiverName, username}) => {
       };
       console.log(username);   
       await axios
-        .post('http://192.168.29.247:5000/downloadURL', data)
+        .post('http:// 172.20.10.3:5000/downloadURL', data)
         .then(res => {
           console.log(res.body);
         })

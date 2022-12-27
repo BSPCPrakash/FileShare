@@ -68,7 +68,7 @@ export default class ReceiveFiles extends React.Component {
       username: this.state.username,
       device_id: this.state.username,
     };
-    Axios.post('http://192.168.29.247:5000/transactions', data)
+    Axios.post('http://172.20.10.3:5000/transactions', data)
       .then(res => {
         console.log(res.data);
         this.setState({

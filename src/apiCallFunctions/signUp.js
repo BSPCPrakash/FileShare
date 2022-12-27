@@ -18,7 +18,7 @@ const onSignUp = async (
     phonenumber: phonenumber,
   };
   await axios
-    .post('http://192.168.29.247:5000/register', data)
+    .post('http:// 172.20.10.3:5000/register', data)
     .then(res => {
       console.log(res);
       if (res.body['message'] == 'User Registered') {
@@ -27,6 +27,9 @@ const onSignUp = async (
           ToastAndroid.SHORT,
           ToastAndroid.CENTER,
         );
+         AsyncStorage.setItem("Username",username,()=>{
+          setIsLoggedIn(true);
+        });
       } else if (res.body['message'] == 'User Already Registered') {
         ToastAndroid.showWithGravity(
           'User Already Exists With this username',

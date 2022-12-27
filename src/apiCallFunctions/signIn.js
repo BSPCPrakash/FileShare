@@ -10,7 +10,7 @@ const onSignIn = async (username, password, setIsLoggedIn) => {
     password: password,
   };
   await axios
-    .post('http://192.168.29.247:5000/login', data)
+    .post('http://172.20.10.3:5000/login', data)
     .then(res => {
       const serverResponse = res.data["message"];
       console.log(res.data["message"]);
